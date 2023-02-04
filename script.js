@@ -141,26 +141,29 @@
 // 3. Умножение
 // 4. Деление
 
-function summa(a, b) {
-    console.log(`Сумма чисел = ${a + b}`);
-}
+// function summa(a, b) {
+//     console.log(`Сумма чисел = ${a + b}`);
+// }
 
-function raznost(a, b) {
-    console.log(`Разность чисел = ${a - b}`);
-}
+// function raznost(a, b) {
+//     console.log(`Разность чисел = ${a - b}`);
+// }
 
-function proizvedenie(a, b) {
-    console.log(`Произведение чисел = ${a * b}`);
-}
+// function proizvedenie(a, b) {
+//     console.log(`Произведение чисел = ${a * b}`);
+// }
 
-function delenie(a, b) {
-    console.log(`Деление чисел = ${a / b}`);
-}
+// function delenie(a, b) {
+//     console.log(`Деление чисел = ${a / b}`);
+// }
 
-let num1 = Number(prompt('Введите первое число'));
-let num2 = Number(prompt('Введите второе число'));
+// let num1 = Number(prompt('Введите первое число'));
+// let num2 = Number(prompt('Введите второе число'));
 
-summa(num1, num2);
-raznost(num1, num2);
-proizvedenie(num1, num2);
-delenie(num1, num2);
+// summa(num1, num2);
+// raznost(num1, num2);
+// proizvedenie(num1, num2);
+// delenie(num1, num2);
+
+
+
