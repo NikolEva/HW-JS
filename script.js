@@ -176,59 +176,59 @@
 // …
 // 10 – четное число
 
-for (let i = 0; i < 11; i++) {
-    if (i == 0) {
-        console.log('0 – это ноль');
-    }
-    else if (i % 2 == 0 ) {
-        console.log(`${i} - четное число`);
-    }
-    else if (i % 2 == 1) {
-        console.log(`${i} – нечетное число`);
-    }
-}
+// for (let i = 0; i < 11; i++) {
+//     if (i == 0) {
+//         console.log('0 – это ноль');
+//     }
+//     else if (i % 2 == 0 ) {
+//         console.log(`${i} - четное число`);
+//     }
+//     else if (i % 2 == 1) {
+//         console.log(`${i} – нечетное число`);
+//     }
+// }
 
 // Задание 2
 // Дан массив [1, 2, 3, 4, 5, 6, 7]
 // Сделайте из этого массива следующий [1, 2, 3, 6, 7]
 
-const arr = [1, 2, 3, 4, 5, 6, 7];
-alert(arr);
-arr.splice(3, 4, 6, 7);
-alert(arr);
+// const arr = [1, 2, 3, 4, 5, 6, 7];
+// alert(arr);
+// arr.splice(3, 4, 6, 7);
+// alert(arr);
 
 // Задание 3
 // Используя Math.random() вам необходимо генерировать цифры от 0 до 9, и создать массив состоящий из 5 таких элементов
 // 1. Рассчитать сумму элементов этого массива
 // 2. Найти минимальное число
 // 3. Найти есть ли в этом массиве число 3
-const arr = [];
-let sum = 0;
+// const arr = [];
+// let sum = 0;
 
-for (let i = 0; i < 6; i++) {
-    arr[i] = Math.random(0, 10);
-    sum = sum + arr[i];
-}    
+// for (let i = 0; i < 6; i++) {
+//     arr[i] = Math.random(0, 10);
+//     sum = sum + arr[i];
+// }    
 
-console.log(arr);
-console.log(`min значение ${Math.min.apply(null, arr)}`);   
-console.log(`сумма = ${sum}`);
+// console.log(arr);
+// console.log(`min значение ${Math.min.apply(null, arr)}`);   
+// console.log(`сумма = ${sum}`);
 
-if (arr.indexOf(3) == -1 ) {
-    console.log('в массиве нет числа 3');
-}
-else {
-    console.log('в массиве есть число 3');
-}
+// if (arr.indexOf(3) == -1 ) {
+//     console.log('в массиве нет числа 3');
+// }
+// else {
+//     console.log('в массиве есть число 3');
+// }
 
 // *Необязательное задание. *
 // Необходимо вывести горку в консоль (используя цикл for), как показано на рисунке, только у вашей горки должно быть 20 рядов, а не 5:
 
 
-for(let x = 0; x < 20; x++){
-    let a = "";
-    for(let y = 0; y <= x; y++){
-    a += "*";
-    }
-    console.log(a);
-}
+// for(let x = 0; x < 20; x++){
+//     let a = "";
+//     for(let y = 0; y <= x; y++){
+//     a += "*";
+//     }
+//     console.log(a);
+// }
