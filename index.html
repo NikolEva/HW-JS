@@ -7,124 +7,87 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <p class="dropdown">Привет :)</p>
-    <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown button
-    </button>
-    <div class="menu dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-    </div>
-    </div>
-    
-    <script>
-    //     "use strict";
-    // []()
-    // []()
-    // 1. Ко всем элементам, имеющим класс "dropdown-item" добавить еще один класс "super-dropdown", необходимо использовать методы forEach и querySelectorAll и свойство classList у элементов.
-    // []()
-let dropEl = document.querySelectorAll('.dropdown-item');
-dropEl.forEach(element => {
-    element.classList.add('super-dropdown')
+    <p class="super_element">Привет</p>
+
+<img src="https://placeimg.com/50/50/animals" alt="">
+<img src="https://placeimg.com/50/50/arch" alt="">
+<img src="https://placeimg.com/50/50/nature" alt="">
+<img src="https://placeimg.com/50/50/people" alt="">
+<img src="https://placeimg.com/50/50/tech" alt="">
+<img src="https://placeimg.com/50/50/tech/grayscale" alt="">
+<img src="https://placeimg.com/50/50/tech/sepia" alt="">
+
+<br>
+
+<button>Кнопка</button>
+<button class="super_element">Кнопка с классом btn</button>
+<button>Кнопка</button>
+
+<br>
+
+<textarea></textarea>
+
+<br>
+
+<ul>
+  <li>
+    <button>Кнопка 1</button>
+  </li>
+  <li>
+    <button>Кнопка 2</button>
+  </li>
+  <li>
+    <button>Кнопка 3</button>
+  </li>
+  <li>
+    <button>Кнопка 4</button>
+  </li>
+</ul>
+
+<script>
+//   1. Необходимо вывести сообщение в консоль "все теги прогрузились", когда все теги будут созданы браузером.
+document.addEventListener('DOMContentLoaded', function (e) {
+  console.log('все теги прогрузились');
 });
-console.log(dropEl);
 
-    // 2. У элемента с классом btn необходимо убрать класс "btn-secondary", если он присутствует у этого элемента, либо добавить, если такого класса у элемента не было.
-    // []()
-let btnEl = document.querySelector('.btn').classList.toggle('btn-secondary');
-console.log(btnEl); // false - удалили класс
+// 2. Необходимо вывести сообщение в консоль "страница загрузилась", когда все ресурсы страницы будут загружены.
+window.addEventListener('load', function (e) {
+  console.log('страница загрузилась');
+});
 
-    // 3. Необходимо удалить класс "dropdown-menu" у элемента, у которого присутствует класс "menu".
-    // []()
-document.querySelector('.menu').classList.remove('dropdown-menu');
+// 3. При клике на какой-либо тег на странице в консоль должно выводиться сообщение наподобие:
+// - Класс "super_element" присутствует в элементе "div".
+// - сообщение должно определять присутствует или отсутствует класс "super_element"
+// - у элемента, а также выводить в нижнем регистре верный тег в данной строке, по
+// - которому был совершен клик.
+// - Необходимо использовать делегирование.
+document.addEventListener('click', event => {
+  const containEl = event.target.classList.contains('super_element') ? 'присутствует' : 'отсутствует';
+  console.log(` Класс "super_element" ${containEl} в элементе "${event.target.tagName.toLowerCase()}".`);
+});
 
-    // 4. Используя метод insertAdjacentHTML добавьте после div'a с классом "dropdown" следующую разметку:
-    // `<a href="#">link</a>`
-    // []()
-document.querySelector('div.dropdown').insertAdjacentHTML('afterend', '<a href="#">link</a>');
+// 4. Сделайте, чтобы при наведении на textarea в консоли появлялось сообщение: "Вы навели на textarea."
+document.querySelector('textarea').addEventListener('mouseover', function (e) {
+  console.log('Вы навели на textarea.');
+});
 
+// 5. Необходимо повесить событие клика на тег ul. В обработчике события в консоль необходимо выводить текст, который записан внутри элемента кнопки, по которой был произведен клик. Если клик был не по кнопке, то ничего выводить не нужно. Необходимо использовать делегирование.
+document.querySelector('ul').addEventListener('click', function (e) {
+  if (event.target.tagName !== "BUTTON") {
+    return;
+  }
+  console.log(event.target.textContent);
+});
 
-    // 5. У элемента с id "dropdownMenuButton" замените id на "superDropdown".
-    // []()
-document.querySelector('#dropdownMenuButton').id = 'superDropdown';
+// 6. Вопрос: Почему в console.log пишется сначала текст из 5 задания и только потом выводится текст из 3 задания, если мы кликаем по кнопкам в ul? Ответ необходимо написать здесь же, под этим комментарием, своими словами.
+// потому что в 5 задании нужно, чтобы прогрузился только <ul>, а в 3 задании должны прогрузиться все теги
 
-    // 6. Добавьте атрибут data-dd со значением 3 элементу у которого существует атрибут "aria-labelledby" равный "dropdownMenuButton" используя dataset.
-    // []()
-document.querySelector('[aria-labelledby="dropdownMenuButton"]').dataset.dd = "3";
+// 7. С помощью JS необходимо изменить цвет заднего фона каждого второго тега li.
+document.querySelectorAll('li:nth-child(2n)').forEach(el => el.style.backgroundColor = 'red');
 
+</script>
+ 
 
-    // 7. Удалите атрибут type у элемента с классом "dropdown-toggle".
-document.querySelector('.dropdown-toggle').removeAttribute('type');
-
-        </script> -->
-
-    <!-- <a href="#" class="card-link">Card link</a>
-//     <a href="#" class="card-link">Another link</a>
-    
-//     <div class="card" style="width: 18rem;">
-//     <div class="card-body">
-//     <h5 class="card-title" data-number="100">Card title</h5>
-//     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-//     <p class="card-text" data-number="50">
-//     Some quick example text to build on the card title and make up the bulk of the card's
-//     content.
-//     </p>
-//     <a href="#" id="super_link" class="card-link">Card link</a>
-//     <a href="#" class="card-link" data-number="50">Another link</a>
-//     </div>
-//     </div> -->
-    
-    <!-- <script>
-//     // "use strict";
-//     // ``
-//     // []()
-//     // []()
-//     // 1. Найти по id, используя getElementById, элемент с id равным "super_link" и вывести этот элемент в консоль.
-//     // []()
-// const superLink = document.getElementById("super_link");
-// console.log(superLink);
-
-
-//     // 2. Внутри всех элементов на странице, которые имеют класс "card-link", поменяйте текст внутри элемента на "ссылка".
-//     // []()
-// const cardLink = document.querySelectorAll("a.card-link");
-// cardLink.forEach(element => {
-//     element.textContent = 'ссылка';
-// });
-
-
-//     // 3. Найти все элементы на странице с классом "card-link", которые лежат в элементе с классом "card-body" и вывести полученную коллекцию в консоль.
-//     // []()
-// const twoClass = document.querySelectorAll('.card-body .card-link');
-// console.log(twoClass);
-
-
-//     // 4. Найти первый попавшийся элемент на странице у которого есть атрибут data-number со значением 50 и вывести его в консоль.
-//     // []()
-// const dataNumber = document.querySelector('[data-number="50"]');
-// console.log(dataNumber);
-
-//     // 5. Выведите содержимое тега title в консоль.
-//     // []()
-// console.log(document.title);
-
-//     // 6. Получите элемент с классом "card-title" и выведите его родительский узел в консоль.
-//     // []()
-// const parentElem = document.querySelector('.card-title').parentNode;
-// console.log(parentElem);
-
-//     // 7. Создайте тегp`, запишите внутри него текст "Привет" и добавьте созданный тег в начало элемента, который имеет класс "card".
-// const pTag = document.createElement('p');
-// pTag.textContent = 'Привет';
-// document.querySelector('.card').prepend(pTag);    
-
-
-//     // 8. Удалите тег h6 на странице.
-// const deleteTag = document.querySelector('h6');
-// deleteTag.remove();
-// </script> -->
 
 <script src="script.js" defer></script>
 </body>
