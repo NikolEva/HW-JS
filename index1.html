@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .product-box {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-top: 100px;
+        }
+        .product {
+            padding: 16px;
+            border: 1px solid black;
+            background-color: azure;
+        }
+
+        .product_text {
+            display: flex;
+            justify-content: center;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="product-box">
+        
+    </div>
+    <script src="data.js"></script>
+    <script>
+        const productBox = document.querySelector('.product-box');
+
+        const data = JSON.parse(dataInfo);
+        // console.log(data);
+        data.forEach(element => {
+            
+            const productEl = document.createElement('div');
+            productEl.classList.add('product');
+
+            const productContent = document.createElement('div');
+            productContent.classList.add('product_content');
+
+           const productImg = document.createElement('img');
+           productImg.src = element.message;
+
+           const productText = document.createElement('p');
+           productText.classList.add('product_text');
+           productText.textContent = element.status;
+           
+           productContent.appendChild(productText);
+           productContent.appendChild(productImg);
+           productEl.appendChild(productContent);
+           productBox.appendChild(productEl);
+            
+        });
+        
+    </script>
+   
+</body>
+</html>
