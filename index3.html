@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style3.css">
+    <script src="https://kit.fontawesome.com/20748d31c5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="content">
+        <div class="player">
+            <video class="video" src="./images/State-Fair-2013-HD.mp4.mp4"></video>
+        </div>
+        <div class="controls">
+            
+            <i class="fas fa-backward"></i>
+            <i class="fas fa-play"></i>
+            <i class="fas fa-pause"></i>
+            <i class="fas fa-forward"></i>
+        </div>
+        <div class="current">
+            Текущее время: <span class="currentTime"></span>
+        </div>
+
+        <!-- <input type="range" class="volume" value="0" step="0.01">
+        <input type="range" class="timing" value="0" step="0.001"> -->
+
+        <div class="video-track">
+            <div class="timeline"></div>
+        </div>
+
+    </div>
+<script>
+    const videoEl = document.querySelector('.video');
+    const playButton = document.querySelector('.fa-play');
+    const pauseButton = document.querySelector('.fa-pause');
+    const backwardButton = document.querySelector('.fa-backward');
+    const forwardButton = document.querySelector('.fa-forward');
+    const videoTrack = document.querySelector(".video-track"); // Получаем элемент Видеодорожки
+    const time = document.querySelector(".timeline");          // Получаем элемент времени видео
+
+
+
+
+    playButton.addEventListener('click', function (e) {
+        videoEl.play();
+        videoPlay = setInterval(function(e) {
+        // Создаём переменную времени видел
+            let videoTime = Math.round(videoEl.currentTime);
+        // Создаём переменную всего времени видео
+            let videoLength = Math.round(videoEl.duration);
+        // Вычисляем длину дорожки
+            time.style.width = (videoTime * 100) / videoLength + '%';
+    }, 10);
+
+    });
+
+    pauseButton.addEventListener('click', function (e) {
+        videoEl.pause();
+        clearInterval(videoPlay) // убирает работу интервала
+    });
+
+    backwardButton.addEventListener("click", function(e) {
+    videoEl.currentTime -= 3; // Уменьшаем время на 3 секунды
+    });
+ 
+    forwardButton.addEventListener("click", function(e) {
+    videoEl.currentTime += 3;
+    });
+
+    setInterval(function () {
+       document.querySelector('.current').textContent = 'текущее время: ' + Math.round(videoEl.currentTime);
+    }, 1000);
+
+
+
+    videoTrack.addEventListener("click", function(e) {
+    let posX = e.clientX - 8; // Вычисляем позицию нажатия
+    let timePos = (posX * 100) / 800; // Вычисляем процент перемотки
+    time.style.width = timePos + '%'; // Присваиваем процент перемотки
+    videoEl.currentTime = (timePos * Math.round(videoEl.duration)) / 100 // Перематываем
+});
+
+
+
+</script>
+</body>
+</html>

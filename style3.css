@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    position: relative;
+}
+
+.video {
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.controls {
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    width: 100vw;
+    min-height: 100vh;
+    gap: 10px;
+}
+
+.video-track {
+    height: 5px;
+    width: 100%;
+    background-color: #b6b6b6;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+ 
+.timeline {
+    height: 5px;
+    width: 0;
+    background-color: #58b4ff
+}
